@@ -1,0 +1,15 @@
+# Two REST APIs in the same pod communicating with each other
+apiVersion: v1
+kind: Pod
+metadata:
+  name: apis-pod
+spec:
+  containers:
+    - name: caller-api
+      image: caller-api:latest
+      ports:
+        - containerPort: 3000
+    - name: responder-api
+      image: responder-api:latest
+      ports:
+        - containerPort: 4000
